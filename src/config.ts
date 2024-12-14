@@ -3,6 +3,7 @@ import { Regex, type SomeCompanionConfigField } from '@companion-module/base'
 export interface ModuleConfig {
 	host: string
 	port: number
+	auth_token: string
 }
 
 export function GetConfigFields(): SomeCompanionConfigField[] {
@@ -13,6 +14,7 @@ export function GetConfigFields(): SomeCompanionConfigField[] {
 			label: 'Target IP',
 			width: 8,
 			regex: Regex.IP,
+			default: "192.168.0.1"
 		},
 		{
 			type: 'number',
@@ -23,5 +25,11 @@ export function GetConfigFields(): SomeCompanionConfigField[] {
 			max: 65535,
 			default: 16021,
 		},
+		{
+			type: 'textinput',
+			id: 'auth_token',
+			label: 'API auth token for Nanoleaf',
+			width: 4,
+		}
 	]
 }

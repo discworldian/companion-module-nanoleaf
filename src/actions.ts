@@ -3,29 +3,23 @@ import type { ModuleInstance } from './main.ts'
 export function UpdateActions(self: ModuleInstance): void {
 	self.setActionDefinitions({
 		ping: {
-			name: 'Forest',
+			name: 'Change scene',
 			options: [
 				{
-					id: 'ip',
+					id: 'scene',
 					type: 'textinput',
-					label: 'Test',
-				},
-				{
-					id: 'port',
-					type: 'number',
-					label: 'Test port',
-					default: 16021,
-					min: 1,
-					max: 65535,
-				},
-				{ id: 'auth_token', type: 'textinput', label: 'API auth token' },
+					label: 'Scene name',
+					tooltip: 'Set the name of the scene as set in your Nanoleaf.',
+					default: 'Bi disco',
+					useVariables: true,
+				}
 			],
-			callback: async (event) => {
-				let ip = event.options.ip
-				let port = event.options.port
-				let auth_token = event.options.auth_token
+			callback: async (_) => {
+				const ip = self.config.host
+				const port = self.config.port
+				const auth_token = self.config.auth_token
 
-				const api_url = `https://${ip}:${port}/api/v1/${auth_token}/effects`
+				const api_url = `http://${ip}:${port}/api/v1/${auth_token}/effects`
 
 				try {
 					const response = await fetch(
