@@ -43,13 +43,11 @@ export function UpdateActions(self: ModuleInstance): void {
 
 					const json = await response.json()
 					console.log(json)
-				} catch (error) {
-					console.error(error.message)
+				} catch (error: any) {
+					console.error(`Oh no, ${error.message}`)
 				}
 
 				await new Promise(f => setTimeout(f, 1000 * 10));
-
-
 
 				try {
 					const response = await fetch(
@@ -67,8 +65,8 @@ export function UpdateActions(self: ModuleInstance): void {
 
 					const json = await response.json()
 					console.log(json)
-				} catch (error) {
-					console.error(error.message)
+				} catch (error: any) {
+					console.error(`Oh no, ${error.message}`)
 				}
 			},
 		},
