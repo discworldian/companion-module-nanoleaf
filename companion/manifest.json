@@ -1,7 +1,7 @@
 {
 	"id": "companion-module-nanoleaf",
 	"name": "companion-module-nanoleaf",
-	"shortname": "module-nanoleaf",
+	"shortname": "Nanoleaf",
 	"description": "Nanoleaf controller for Companion.",
 	"version": "0.0.1",
 	"license": "MIT",
@@ -16,11 +16,11 @@
 	"runtime": {
 		"type": "node18",
 		"api": "nodejs-ipc",
-		"apiVersion": "0.0.0",
+		"apiVersion": "0.0.1",
 		"entrypoint": "../dist/main.js"
 	},
 	"legacyIds": [],
-	"manufacturer": "discWorLdian",
+	"manufacturer": "BitFocus",
 	"products": ["Nanoleaf"],
-	"keywords": []
+	"keywords": ["lighting"]
 }
